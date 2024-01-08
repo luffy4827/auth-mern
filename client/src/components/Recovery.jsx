@@ -1,24 +1,10 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import profile from "../assets/profile.png";
+// import { Link } from "react-router-dom";
 import styles from '../Styles/Username.module.css'
 import { Toaster } from 'react-hot-toast'
-import { useFormik } from "formik";
-import { passwordValidate } from '../helper/validate'
+
 
 const Recovery = () => {
-
-  const formik = useFormik({
-    initialValues: {
-      password: 'admin@123'
-    },
-    validate: passwordValidate,
-    validateOnBlur: false,
-    validateOnChange: false,
-    onSubmit: async values => {
-      console.log(values);
-    }
-})
 
   return (
     <div className="container mx-auto">
@@ -26,21 +12,23 @@ const Recovery = () => {
       <div className="flex justify-center items-center min-h-screen ">
         <div className={styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className='text-5xl font-bold'>Password</h4>
+            <h4 className='text-5xl font-bold'>Recover Now</h4>
             <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
-              Explore More by Connecting With Us
+              Enter OTP to recover password.
             </span>
           </div>
-          <form className='py-1' onSubmit={formik.handleSubmit} action="">
-            <div className="profile flex justify-center py-4">
-              <img className={styles.profile_img} src={profile} alt="avatar" />
-            </div>
+          <form className='pt-14' action="">
             <div className="textbox flex flex-col items-center gap-6">
-              <input {...formik.getFieldProps('password')} className={styles.textbox} type="password" placeholder='Password' />
+
+              <span className='py-4 text-sm text-left text-gray-500'>
+                Enter 6 digit OTP sent to your email.
+              </span>
+              <input className={styles.textbox} type="text" placeholder='OTP' />
+
               <button className={styles.btn} type='submit'>Login</button>
             </div>
             <div className="text-center py-4">
-              <span>Forgot password? <Link className='text-red-500' to="/recovery"> Recover Now</Link> </span>
+              <span>Can't OTP? <button className='text-red-500'> Resend</button> </span>
             </div>
           </form>
         </div>
