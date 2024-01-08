@@ -25,7 +25,7 @@ const Recovery = () => {
               </span>
               <input className={styles.textbox} type="text" placeholder='OTP' />
 
-              <button className={styles.btn} type='submit'>Login</button>
+              <button className={styles.btn} type='submit'>Recover Password</button>
             </div>
             <div className="text-center py-4">
               <span>Can't OTP? <button className='text-red-500'> Resend</button> </span>
